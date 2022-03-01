@@ -27,10 +27,10 @@ gradlePlugin {
     }
 }
 
-//java {
-//    sourceCompatibility = JavaVersion.VERSION_1_8
-//    targetCompatibility = JavaVersion.VERSION_1_8
-//}
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 afterEvaluate {
     publishing {
@@ -40,12 +40,6 @@ afterEvaluate {
 //                groupId = 'com.codelang.check'
                 artifactId = 'checkplugin'
 //                version = '1.0'
-            }
-        }
-        repositories {
-            maven {
-                // 生成的插件位置
-                url = uri('../repo')
             }
         }
     }
