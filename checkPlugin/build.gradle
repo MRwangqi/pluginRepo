@@ -35,7 +35,7 @@ java {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
+            jar(MavenPublication) {
                 from components.java
 //                groupId = 'com.codelang.check'
                 artifactId = 'checkplugin'
