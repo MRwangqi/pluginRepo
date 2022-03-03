@@ -8,7 +8,7 @@ import com.codelang.plugin.check.base.BaseFileCheck
 import com.codelang.plugin.check.manifest.ExportedManifest
 import com.codelang.plugin.check.manifest.PermissionManifest
 import com.codelang.plugin.check.manifest.UsesSDKManifest
-import groovy.xml.XmlParser
+import groovy.util.XmlParser
 import org.xml.sax.InputSource
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream

@@ -5,12 +5,11 @@ package com.codelang.plugin.extension
  * @since 2022/2/27.
  */
 open class CheckExtension {
-    var buildType: String = ""
-    var flavors: String = ""
+    var buildVariants: String = ""
     var permissionFile: String = ""
 
     override fun toString(): String {
-        return "CheckExtension(buildType='$buildType', flavors='$flavors', permissionFile='$permissionFile')"
+        return "CheckExtension(buildVariants='$buildVariants', permissionFile='$permissionFile')"
     }
 
 

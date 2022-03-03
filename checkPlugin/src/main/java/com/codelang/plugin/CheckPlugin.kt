@@ -23,8 +23,7 @@ class CheckPlugin : Plugin<Project> {
             val extension = project.extensions.findByName(EXT_NAME) as CheckExtension
 
             extension.apply {
-                Config.buildType = buildType
-                Config.flavors = flavors
+                Config.buildVariants = buildVariants
                 Config.permissionFile = project.projectDir.absolutePath + File.Companion.separator + permissionFile
             }
 
@@ -33,7 +32,7 @@ class CheckPlugin : Plugin<Project> {
                 add(ManifestCheck())
             }
 
-            val configurationName = extension.buildType + extension.flavors.capitalize(Locale.getDefault()) + "CompileClasspath"
+            val configurationName = extension.buildVariants + "CompileClasspath"
             val taskName = "checkDependency"
 
             CheckFileTask(project).runTask(taskName, configurationName, checkList)

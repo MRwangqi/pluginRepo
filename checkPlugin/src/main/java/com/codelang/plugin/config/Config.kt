@@ -5,7 +5,6 @@ package com.codelang.plugin.config
  * @since 2022/2/28.
  */
 object Config {
-    var buildType: String = ""
-    var flavors: String = ""
+    var buildVariants: String = ""
     var permissionFile: String = ""
 }
