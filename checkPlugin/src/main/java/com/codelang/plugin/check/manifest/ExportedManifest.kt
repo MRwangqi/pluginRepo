@@ -12,7 +12,7 @@ class ExportedManifest : IManifest {
 
     override fun onNode(parentNode: Node,path:String,dependency: String, fileName: String, fileSize: Long, zipInputStream: ZipInputStream) {
         val application = parentNode.children().find {
-            (it as Node).name().equals("application")
+            (it as? Node)?.name()?.equals("application")?:false
         } as Node?
 
         if (application != null) {

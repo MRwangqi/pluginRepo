@@ -16,9 +16,8 @@ class PermissionManifest : IManifest {
 
     override fun onNode(parentNode: Node, path: String, dependency: String, fileName: String, fileSize: Long, zipInputStream: ZipInputStream) {
         parentNode.children()?.forEach {
-            val node = (it as Node)
-            if (node.name().equals("uses-permission")) {
-
+            val node = (it as? Node)
+            if (node != null && node.name().equals("uses-permission")) {
                 var deps = hashMap[dependency]
                 if (deps == null) {
                     deps = ArrayList()
