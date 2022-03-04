@@ -14,7 +14,14 @@ import java.util.zip.ZipInputStream
 class PermissionManifest : IManifest {
     private val hashMap = HashMap<String, ArrayList<String>>()
 
-    override fun onNode(parentNode: Node, path: String, dependency: String, fileName: String, fileSize: Long, zipInputStream: ZipInputStream) {
+    override fun onNode(
+        parentNode: Node,
+        path: String,
+        dependency: String,
+        fileName: String,
+        fileSize: Long,
+        zipInputStream: ZipInputStream
+    ) {
         parentNode.children()?.forEach {
             val node = (it as? Node)
             if (node != null && node.name().equals("uses-permission")) {
@@ -32,13 +39,22 @@ class PermissionManifest : IManifest {
         println()
         println("==================== 未匹配的权限 ============================")
 
-        val file = File(Config.permissionFile)
-        if (!file.exists()) {
-            println("未配置权限检查文件")
-            return
+        var text: String? = null
+        try {
+            val file = File(Config.permissionFile)
+            if (!file.exists()) {
+                println("未配置权限检查文件")
+            }else{
+                text = file.readText()
+            }
+        } catch (e: Exception) {
+            println("未配置权限检查文件,需要进行配置才能检查")
         }
 
-        val text = file.readText()
+
+        if (text.isNullOrEmpty()){
+            return
+        }
 
         var list = ArrayList<String>()
         try {
